@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * Counter 1 declares the count variable inside of the function, so it can only be accessed in that context
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter 1 uses a closure. it has a parent/child relationship
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * counter one is better for having multiple counts running at the same time, tbh Im not sure when I would use counter two
 */
 
 // counter1 code
@@ -56,11 +56,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  let score = Math.floor(Math.random() * 3);
+  return score;
 }
+
+//console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,11 +77,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(func,innings){
+  let final = {"Home" : 0, "Away" : 0}
+for (let i =0; i< innings; i++){
+  final.Home += func();
+  final.Away += func();
 }
+console.log(final);
+}
+
+finalScore(inning, 9)
 
 /* Task 4: 
 
